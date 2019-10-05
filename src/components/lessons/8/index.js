@@ -10,6 +10,7 @@ import FormsTask1  from './forms/task1';
 import FormsTask2  from './forms/task2';
 import FormsTask3  from './forms/task3';
 
+//map tasks to topics names
 export default {
   events: [EventsTask1, EventsTask2, EventsTask3],
   lists: [ListsTask1, ListsTask2, ListsTask3],

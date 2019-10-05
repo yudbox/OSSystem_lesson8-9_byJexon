@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Layout  from './components/layout';
-import Content, { renderRoutes }  from './components/content';
+import Layout  from './components/layout/index';
+import Content, { renderRoutes }  from './components/content/index';
 import NotFoundPage  from './components/notFoundPage';
 
 function App() {

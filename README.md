@@ -1,3 +1,7 @@
+## Overview
+
+**Sandbox:** you can run it in [codesandbox.io](https://codesandbox.io/s/github/Okeanrst/reactCourses/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

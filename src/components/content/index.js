@@ -18,7 +18,7 @@ const renderTopics = (topics, lessonName) => {
           <h2>{title}</h2>
           <ul>
             {tasks.map((task, index) => {
-              const path = getTaskPath(lessonName, topicName, index + 1);
+              const path = getTaskPath(lessonName, topicName, index);
               const Component = getTaskComponent(lessonName, topicName, index);
               if (!Component) return null;
               return (

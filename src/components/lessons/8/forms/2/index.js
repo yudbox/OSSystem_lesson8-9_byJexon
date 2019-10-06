@@ -4,7 +4,6 @@ const Task = () => {
   return (
     <div className="task" >
       task2
-
     </div>
   );
 };

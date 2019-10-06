@@ -36,7 +36,7 @@ export const AccordionItemButton = styled(BareAccordionItemButton)`
     content: '';
     height: 7px;
     width: 7px;
-    margin-top: 40px;
+    margin-top: 36px;
     margin-right: 40px;
     border-bottom: 2px solid #92E0FF;
     border-right: 2px solid #92E0FF;

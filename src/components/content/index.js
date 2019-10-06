@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import {
   Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel,
@@ -33,9 +34,9 @@ const renderTopics = (topics, lessonName) => {
   );
 };
 
-const Content = ({ openLessonIndex = 0 }) => {
+const Content = ({ preExpandedLessons = ['8'] }) => {
   return (
-    <Accordion preExpanded={['8']} allowZeroExpanded={true} >
+    <Accordion preExpanded={preExpandedLessons} allowZeroExpanded={true} >
       {lessons.map((lesson) => (
         <AccordionItem key={lesson.name} uuid={lesson.name} >
           <AccordionItemHeading>
@@ -51,6 +52,11 @@ const Content = ({ openLessonIndex = 0 }) => {
     </Accordion>
   );
 };
+
+Content.propTypes = {
+  preExpandedLessons: PropTypes.arrayOf(PropTypes.string),
+};
+
 
 export default Content;
 

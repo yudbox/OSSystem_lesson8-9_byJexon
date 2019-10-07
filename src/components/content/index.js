@@ -21,9 +21,15 @@ const renderTopics = (topics, lessonName) => {
               const path = getTaskPath(lessonName, topicName, index);
               const Component = getTaskComponent(lessonName, topicName, index);
               if (!Component) return null;
+
+              const descriptionPath = getTaskDescriptionPath(lessonName, topicName, index);
+              const Description = getDescriptionComponent(lessonName, topicName, index);
+
               return (
                 <li key={index} >
-                  <Link to={path} className="" >{task.name}</Link>
+                  <Link to={path} >{task.name}</Link>
+                  &nbsp;
+                  {Description && (<Link to={descriptionPath} >description</Link>)}
                 </li>
               );
             })}
@@ -69,8 +75,15 @@ export const renderRoutes = () => {
       tasks.forEach((task, index) => {
         const path = getTaskPath(lessonName, topicName, index);
         const Component = getTaskComponent(lessonName, topicName, index);
+
+        const descriptionPath = getTaskDescriptionPath(lessonName, topicName, index);
+        const Description = getDescriptionComponent(lessonName, topicName, index);
+
         if (Component) {
           routes.push(<Route key={topicName + index} exact path={path} component={Component} />);
+          if (Description) {
+            routes.push(<Route key={topicName + index + 'description'} exact path={descriptionPath} component={Description} />);
+          }
         }
       });
     });
@@ -82,9 +95,20 @@ function getTaskPath(lessonName, topicName, taskNum) {
   return `/lesson${lessonName}/${topicName}/task${taskNum + 1}`;
 }
 
+function getTaskDescriptionPath(lessonName, topicName, taskNum) {
+  return `/lesson${lessonName}/${topicName}/description${taskNum + 1}`;
+}
+
 function getTaskComponent(lessonName, topicName, taskNum) {
   const lessonTasks = lessonsTasks[lessonName];
   if (!lessonTasks || !lessonTasks[topicName]) return null;
-  const Component = lessonTasks[topicName][taskNum];
+  const Component = lessonTasks[topicName][taskNum] && lessonTasks[topicName][taskNum].task;
+  return Component ? Component : null;
+}
+
+function getDescriptionComponent(lessonName, topicName, taskNum) {
+  const lessonTasks = lessonsTasks[lessonName];
+  if (!lessonTasks || !lessonTasks[topicName]) return null;
+  const Component = lessonTasks[topicName][taskNum] && lessonTasks[topicName][taskNum].description;
   return Component ? Component : null;
 }

@@ -1,5 +1,5 @@
 import getTaskDescriptionRenderer from '../../taskDescription';
-import raw from 'raw.macro';
+//import raw from 'raw.macro';
 
 import EventsTask1 from './events/1';
 import EventsTask2 from './events/2';
@@ -14,10 +14,12 @@ import FormsTask1  from './forms/1';
 import FormsTask2  from './forms/2';
 import FormsTask3  from './forms/3';
 
-const listsTask1Description = raw('./lists/1/README.md');
-const listsTask2Description = raw('./lists/2/README.md');
-const listsTask3Description = raw('./lists/3/README.md');
-const listsTask4Description = raw('./lists/4/README.md');
+const inProgress = 'development is in progress';
+
+const listsTask1Description = inProgress/*raw('./lists/1/README.md')*/;
+const listsTask2Description = inProgress/*raw('./lists/2/README.md')*/;
+const listsTask3Description = inProgress/*raw('./lists/3/README.md')*/;
+const listsTask4Description = inProgress/*raw('./lists/4/README.md')*/;
 
 const getDescriptionComponent = getTaskDescriptionRenderer;
 

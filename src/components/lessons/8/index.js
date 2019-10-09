@@ -1,5 +1,5 @@
 import getTaskDescriptionRenderer from '../../taskDescription';
-//import raw from 'raw.macro';
+import raw from 'raw.macro';
 
 import EventsTask1 from './events/1';
 import EventsTask2 from './events/2';
@@ -14,12 +14,18 @@ import FormsTask1  from './forms/1';
 import FormsTask2  from './forms/2';
 import FormsTask3  from './forms/3';
 
-const inProgress = 'development is in progress';
+//in codesandbox.io raw.macro can't load source from relative path
+//raw('./lists/1/README.md')
+const basePath = './src/components/lessons/8/';
 
-const listsTask1Description = inProgress/*raw('./lists/1/README.md')*/;
-const listsTask2Description = inProgress/*raw('./lists/2/README.md')*/;
-const listsTask3Description = inProgress/*raw('./lists/3/README.md')*/;
-const listsTask4Description = inProgress/*raw('./lists/4/README.md')*/;
+const listsTask1Description = raw(basePath + 'lists/1/README.md');
+const listsTask2Description = raw(basePath + 'lists/2/README.md');
+const listsTask3Description = raw(basePath + 'lists/3/README.md');
+const listsTask4Description = raw(basePath + 'lists/4/README.md');
+
+const formsTask1Description = raw(basePath + 'forms/1/README.md');
+const formsTask2Description = raw(basePath + 'forms/2/README.md');
+const formsTask3Description = raw(basePath + 'forms/3/README.md');
 
 const getDescriptionComponent = getTaskDescriptionRenderer;
 
@@ -37,8 +43,8 @@ export default {
     {task: ListsTask4, description: getDescriptionComponent(listsTask4Description)},
   ],
   forms: [
-    {task: FormsTask1, description: undefined},
-    {task: FormsTask2, description: undefined},
-    {task: FormsTask3, description: undefined},
+    {task: FormsTask1, description: getDescriptionComponent(formsTask1Description)},
+    {task: FormsTask2, description: getDescriptionComponent(formsTask2Description)},
+    {task: FormsTask3, description: getDescriptionComponent(formsTask3Description)},
   ],
 };

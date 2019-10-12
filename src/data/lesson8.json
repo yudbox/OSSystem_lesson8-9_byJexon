@@ -25,8 +25,8 @@
       "name": "events",
       "title": "Обработка событий и привязка событий",
       "tasks": [
-        {"name": "task1"},
-        {"name": "task2"},
+        {"name": "Bind this to event handlers in 3 different ways"},
+        {"name": "Refine WindowSize component"},
         {"name": "task3"}
       ]
     }

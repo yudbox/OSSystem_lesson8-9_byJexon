@@ -27,13 +27,16 @@ const formsTask1Description = raw(basePath + 'forms/1/README.md');
 const formsTask2Description = raw(basePath + 'forms/2/README.md');
 const formsTask3Description = raw(basePath + 'forms/3/README.md');
 
+const eventsTask1Description = raw(basePath + 'events/1/README.md');
+const eventsTask2Description = raw(basePath + 'events/2/README.md');
+
 const getDescriptionComponent = getTaskDescriptionRenderer;
 
 //map tasks to topics names
 export default {
   events: [
-    {task: EventsTask1, description: undefined},
-    {task: EventsTask2, description: undefined},
+    {task: EventsTask1, description: getDescriptionComponent(eventsTask1Description)},
+    {task: EventsTask2, description: getDescriptionComponent(eventsTask2Description)},
     {task: EventsTask3, description: undefined},
   ],
   lists: [

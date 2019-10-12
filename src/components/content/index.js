@@ -29,7 +29,7 @@ const renderTopics = (topics, lessonName) => {
                 <li key={index} >
                   <Link to={path} >{task.name}</Link>
                   &nbsp;
-                  {Description && (<Link to={descriptionPath} >description</Link>)}
+                  {Description && (<Link to={descriptionPath} >(description)</Link>)}
                 </li>
               );
             })}

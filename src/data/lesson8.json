@@ -27,7 +27,14 @@
       "tasks": [
         {"name": "Bind this to event handlers in 3 different ways"},
         {"name": "Refine WindowSize component"},
-        {"name": "task3"}
+        {"name": "Repair click counter"}
+      ]
+    },
+    {
+      "name": "common",
+      "title": "Общие задания",
+      "tasks": [
+        {"name": "Bind this to event handlers in 3 different ways"}
       ]
     }
   ]

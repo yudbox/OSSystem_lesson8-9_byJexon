@@ -40,9 +40,9 @@ const renderTopics = (topics, lessonName) => {
   );
 };
 
-const Content = ({ preExpandedLessons = ['8'] }) => {
+const Content = ({ preExpandedLessons = ['8'], setExpandedLessons }) => {
   return (
-    <Accordion preExpanded={preExpandedLessons} allowZeroExpanded={true} >
+    <Accordion preExpanded={preExpandedLessons} allowZeroExpanded={true} onChange={setExpandedLessons} >
       {lessons.map((lesson) => (
         <AccordionItem key={lesson.name} uuid={lesson.name} >
           <AccordionItemHeading>
@@ -61,6 +61,7 @@ const Content = ({ preExpandedLessons = ['8'] }) => {
 
 Content.propTypes = {
   preExpandedLessons: PropTypes.arrayOf(PropTypes.string),
+  setExpandedLessons: PropTypes.func.isRequired,
 };
 
 

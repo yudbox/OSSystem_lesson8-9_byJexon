@@ -1,4 +1,4 @@
-import getTaskDescriptionRenderer from '../../taskDescription';
+import getDescriptionComponent from '../../taskDescription';
 import raw from 'raw.macro';
 
 import EventsTask1 from './events/1';
@@ -34,8 +34,6 @@ const eventsTask2Description = raw(basePath + 'events/2/README.md');
 const eventsTask3Description = raw(basePath + 'events/3/README.md');
 
 const commonTask1Description = raw(basePath + 'common/1/README.md');
-
-const getDescriptionComponent = getTaskDescriptionRenderer;
 
 //map tasks to topics names
 export default {

@@ -35,7 +35,7 @@ class VoteComponent extends React.PureComponent {
     const { resolution, terminalNumber } = this.props;
     return (
       <div style={this.style} >
-        <h7>Terminal number: {terminalNumber}</h7>
+        <h6>Terminal number: {terminalNumber}</h6>
         <h3>Resolution: "{resolution}"</h3>
         <button onClick={this.decrease}>No</button>
         <button onClick={this.increase}>Yes</button>

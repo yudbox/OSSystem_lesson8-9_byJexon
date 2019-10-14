@@ -81,7 +81,7 @@ export const renderRoutes = () => {
         const Description = getDescriptionComponent(lessonName, topicName, index);
 
         if (Component) {
-          routes.push(<Route key={topicName + index} exact path={path} component={Component} />);
+          routes.push(<Route key={topicName + index} path={path} component={Component} />);
           if (Description) {
             routes.push(<Route key={topicName + index + 'description'} exact path={descriptionPath} component={Description} />);
           }

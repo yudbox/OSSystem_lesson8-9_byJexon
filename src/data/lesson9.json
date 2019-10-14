@@ -16,7 +16,8 @@
       "title": "Использование PropTypes",
       "tasks": [
         {"name": "task 1"},
-        {"name": "task 2"}
+        {"name": "task 2"},
+        {"name": "task 3"}
       ]
     },
     {

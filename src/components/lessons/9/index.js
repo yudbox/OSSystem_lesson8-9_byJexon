@@ -7,6 +7,7 @@ import LiftingStateUpTask3 from './liftingStateUp/3';
 import PropTypesTask1 from './propTypes/1';
 import PropTypesTask2 from './propTypes/2';
 import PropTypesTask3 from './propTypes/3';
+import PropTypesTask4 from './propTypes/4';
 
 
 const basePath = './src/components/lessons/9/';
@@ -17,6 +18,7 @@ const liftingStateUpTask3Description = getDescriptionComponent(raw(basePath + 'l
 const propTypes1Description = getDescriptionComponent(raw(basePath + 'propTypes/1/README.md'));
 const propTypes2Description = getDescriptionComponent(raw(basePath + 'propTypes/2/README.md'));
 const propTypes3Description = getDescriptionComponent(raw(basePath + 'propTypes/3/README.md'));
+const propTypes4Description = getDescriptionComponent(raw(basePath + 'propTypes/4/README.md'));
 
 //map tasks to topics names
 export default {
@@ -30,6 +32,7 @@ export default {
     {task: PropTypesTask1, description: propTypes1Description},
     {task: PropTypesTask2, description: propTypes2Description},
     {task: PropTypesTask3, description: propTypes3Description},
+    {task: PropTypesTask4, description: propTypes4Description},
   ],
   fragments: [
 

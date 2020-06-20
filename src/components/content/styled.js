@@ -48,6 +48,13 @@ export const AccordionItemButton = styled(BareAccordionItemButton)`
   
   outline: none;
 `;
+
+export const AccordionItemLessonNum = styled.div`
+  margin-top: 8px;
+  font-size: 0.5em;
+  color: rgb(169, 169, 169);
+`;
+
 export const AccordionItemPanel = styled(BareAccordionItemPanel)`
   margin-left: 24px;
   margin-right: 48px;

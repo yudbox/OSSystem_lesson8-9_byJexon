@@ -9,7 +9,7 @@ const Index = ({ children }) => (
       <Link to="/" >Content</Link>
     </nav>
     {children}
-    <Footer>React Courses, 2019</Footer>
+    <Footer>React Courses, {(new Date()).getFullYear()}</Footer>
   </Container>
 );
 

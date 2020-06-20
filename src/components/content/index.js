@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import {
   Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel,
+  AccordionItemLessonNum,
 } from './styled';
 import lesson8 from '../../data/lesson8.json';
 import lesson9 from '../../data/lesson9.json';
 import lessonsTasks from '../lessons';
 
-const lessons = [lesson8, lesson9];
+const lessons = [lesson8/*, lesson9*/];
 
 const renderTopics = (topics, lessonName) => {
   return (
@@ -46,8 +47,11 @@ const Content = ({ preExpandedLessons = ['8'], setExpandedLessons }) => {
       {lessons.map((lesson) => (
         <AccordionItem key={lesson.name} uuid={lesson.name} >
           <AccordionItemHeading>
-            <AccordionItemButton>
-              <h1>{lesson.title}</h1>
+            <AccordionItemButton disabled={true}>
+              <h1>
+                {lesson.title}
+                <AccordionItemLessonNum>lesson {lesson.name}</AccordionItemLessonNum>
+              </h1>
             </AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>

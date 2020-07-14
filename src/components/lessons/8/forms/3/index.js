@@ -6,6 +6,11 @@ class UncontrolledForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.emailRef = React.createRef();
     this.agreeRef = React.createRef();
+    this.state = {
+      email: '',
+      checkbox: false
+  
+    }
 
   }
 
@@ -26,12 +31,27 @@ class UncontrolledForm extends React.Component {
     }
   };
 
+  onInputChange = (e) => {
+    const email = e.target.value;
+    this.setState({
+      email
+    })
+  }
+
+  onCheckboxChange = (e) => {
+    const checkbox = e.target.checked;
+    this.setState({
+      checkbox
+    })
+
+  }
+
   render() {
     const { emailRef, agreeRef } = this;
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="email" ref={emailRef} />
-        <input type="checkbox" ref={agreeRef} />
+        <input onChange={this.onInputChange} value={this.state.email} type="email" ref={emailRef} />
+        <input onClick={this.onCheckboxChange} checked={this.state.checkbox}  type="checkbox" ref={agreeRef} />
       </form>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 function Badge(props) {
   const { authed, style, name, handle, img, addFriend } = props;
@@ -12,6 +13,7 @@ function Badge(props) {
       <img
         style={{width: 200, borderRadius: '50%'}}
         src={img}
+        alt=''
       />
       <h1 style={{margin: 5}}>{name}</h1>
       <h3 style={{margin: 5}}>@{handle}</h3>
@@ -45,3 +47,30 @@ const Task = () => {
 };
 
 export default Task;
+
+
+Badge.propTypes = {
+  name: PropTypes.string.isRequired,
+  handle: PropTypes.string.isRequired,
+  img: PropTypes.string,
+  authed: PropTypes.bool.isRequired,
+  style: PropTypes.shape({
+    width: PropTypes.number,
+    margin: PropTypes.string,
+    border: PropTypes.string,
+    padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    borderRadius: PropTypes.number,
+    display: PropTypes.string,
+    flexDirection: PropTypes.string,
+    alignItems: PropTypes.string
+  }),
+  addFriend: PropTypes.func
+}
+
+Badge.defaultProps = {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }
+}

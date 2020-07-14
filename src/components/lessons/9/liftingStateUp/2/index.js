@@ -4,7 +4,7 @@ import faker from 'faker';
 import styled from 'styled-components';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
-import { SearchableList as List } from './components';
+import { SearchableList } from './components';
 
 
 const MIN_ID = 0;
@@ -39,8 +39,22 @@ const refreshData = count => {
 
 const list = refreshData(MIN_COUNT);
 
+
+
+
+
+// -----------------************---------------
+
+
+
+
+
+
 function Task() {
   const { url } = useRouteMatch();
+  const [archivedItems, setArchivedItems] = React.useState([]);
+
+
 
   const listPath = `${url}/list`;
 
@@ -53,7 +67,7 @@ function Task() {
         <Switch>
           <Route path={listPath} exact >
             <Link to={url} >back to task page</Link>
-            <List list={list} />
+            <SearchableList list={list} archivedItems={archivedItems} setArchivedItems={setArchivedItems}/>
           </Route>
         </Switch>
         <br/>

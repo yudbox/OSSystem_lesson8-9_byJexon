@@ -1,5 +1,6 @@
 import React from 'react';
 import data from './data.json';
+import PropTypes from 'prop-types';
 
 const PersonalInfo = ({ data }) => (
   <div className="personalInfo" >
@@ -37,9 +38,36 @@ class ShowPersonalInfo extends React.Component {
 const Task = () => {
   return (
     <div>
-      <ShowPersonalInfo companies={data} />
+      SWITCH ON THE COMPONENT IN INDEX.JS
+      {/* <ShowPersonalInfo companies={data} /> */}
     </div>
   );
 };
 
 export default Task;
+
+ShowPersonalInfo.propTypes = {
+  companies: PropTypes.arrayOf(
+    PropTypes.exact({
+      _id: PropTypes.string.isRequired,
+      guid: PropTypes.string.isRequired,
+      isActive: PropTypes.bool.isRequired,
+      balance: PropTypes.string.isRequired,
+      age: PropTypes.number.isRequired,
+      name: PropTypes.objectOf(PropTypes.string).isRequired,
+      company: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      latitude: PropTypes.string,
+      longitude: PropTypes.string,
+      tags: PropTypes.array,
+      range: PropTypes.array,
+      friends: PropTypes.arrayOf(
+        PropTypes.exact({
+          id: PropTypes.number,
+          name: PropTypes.string
+        })
+      ).isRequired,
+      
+    })
+  )
+}

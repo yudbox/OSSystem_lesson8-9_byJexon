@@ -1,14 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 
 class VoteComponent extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      votesNumber: 0,
-    };
-  }
 
   style = {
     padding: '8px',
@@ -16,22 +10,21 @@ class VoteComponent extends React.PureComponent {
     border: 'solid 1px grey',
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.votesNumber !== prevState.votesNumber) {
-      this.props.onVote(this.state.votesNumber);
-    }
-  }
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   if (this.state.votesNumber !== prevState.votesNumber) {
+  //     this.props.onVote(this.state.votesNumber);
+  //   }
+  // }
 
   increase = () => {
-    this.setState(({ votesNumber }) => ({votesNumber: votesNumber + 1}));
+    this.props.onIncrease();
   }
 
   decrease = () => {
-    this.setState(({ votesNumber }) => ({votesNumber: votesNumber - 1}));
+    this.props.onDecrease();
   }
 
   render() {
-    console.log('VoteComponent render');
     const { resolution, terminalNumber } = this.props;
     return (
       <div style={this.style} >
@@ -53,6 +46,11 @@ const VotingDisplay = ({ resolution, result }) => {
   );
 }
 
+
+
+
+
+
 class VotingSystem extends React.Component {
   constructor(props) {
     super(props);
@@ -66,15 +64,39 @@ class VotingSystem extends React.Component {
     this.setState({votesNumber});
   }
 
+  onIncrease = () => {
+    this.setState({
+      votesNumber: this.state.votesNumber + 1
+    });
+  }
+
+  onDecrease = () => {
+    this.setState({
+      votesNumber: this.state.votesNumber - 1
+    });
+  }
+
   render() {
     const { resolution } = this.props;
     const { votesNumber } = this.state;
     return (
       <React.Fragment>
         <VotingDisplay resolution={resolution} result={votesNumber} />
-        <VoteComponent resolution={resolution} onVote={this.onVote} terminalNumber={1} />
-        <VoteComponent resolution={resolution} onVote={this.onVote} terminalNumber={2} />
-        <VoteComponent resolution={resolution} onVote={this.onVote} terminalNumber={3} />
+
+        <VoteComponent resolution={resolution}
+                       onIncrease={this.onIncrease} 
+                       onDecrease={this.onDecrease}  
+                       terminalNumber={1} />
+
+        <VoteComponent resolution={resolution} 
+                       onIncrease={this.onIncrease} 
+                       onDecrease={this.onDecrease}
+                       terminalNumber={2} />
+
+        <VoteComponent resolution={resolution}
+                       onIncrease={this.onIncrease} 
+                       onDecrease={this.onDecrease}
+                       terminalNumber={3} />
       </React.Fragment>
     );
   }
@@ -91,3 +113,19 @@ const Task = () => {
 };
 
 export default Task;
+
+
+VotingSystem.propTypes = {
+  resolution: PropTypes.string
+}
+
+VoteComponent.propTypes = {
+  resolution: PropTypes.string,
+  onIncrease: PropTypes.func,
+  onDecrease: PropTypes.func,
+  terminalNumber: PropTypes.number
+}
+
+VotingDisplay.propTypes = {
+  result: PropTypes.number
+}

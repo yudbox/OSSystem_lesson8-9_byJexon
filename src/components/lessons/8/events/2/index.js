@@ -1,25 +1,24 @@
 import React from 'react';
+import { debounce } from 'lodash'
 //import debounce from 'lodash/debounce';
 
 class WindowSize extends React.Component {
   constructor(props) {
     super(props);
     this.state = {height: '', width: ''};
-    { /* change code below this line */ }
 
-    { /* change code above this line */ }
   }
 
   componentDidMount() {
     this.storeWindowSize(this.getWindowSize());
     /* change code below this line */
-
+    window.addEventListener('resize', this.onResize);
     /* change code above this line */
   }
 
   componentWillUnmount() {
     /* change code below this line */
-
+    window.removeEventListener('resize', this.onResize);
     /* change code above this line */
   }
 
@@ -33,9 +32,13 @@ class WindowSize extends React.Component {
     this.setState({height, width});
   }
 
-  onResize() {
+
+
+  onResize = debounce(() => {
     this.storeWindowSize(this.getWindowSize());
-  }
+    console.log('onResize')
+  }, 1000)
+
 
   render() {
     const { height, width } = this.state;

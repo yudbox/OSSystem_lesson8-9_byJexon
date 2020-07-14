@@ -1,14 +1,24 @@
 import React from 'react';
 
+const User = ({username}) => {
+  return(
+    <li>
+      {username}
+    </li>
+  )
+}
+
 function Users({ users, online }) {
+  let generatorId = Math.floor(Math.random()*100)
+
   const status = online ? 'Online' : 'Offline';
-  const usersToRender = null; // change code here
-  const usersItems = null; // change code here
+  // const usersToRender = null;//change code here
+  const usersItems = users.filter(user => user.online )// change code here);
   return (
     <div>
-      <h1>Current {status} Users:</h1>
+      <h1>Current {status} Users: {usersItems.length} </h1>
       <ul>
-        {usersItems}
+        {usersItems.map(user=> <User {...user} key={generatorId} />)}
       </ul>
     </div>
   );

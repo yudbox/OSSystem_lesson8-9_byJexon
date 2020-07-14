@@ -5,7 +5,7 @@ import { ReactComponent as PythonIcon } from './icons/python.svg';
 import { ReactComponent as JavaIcon } from './icons/java.svg';
 import { ReactComponent as JavacriptIcon } from './icons/javascript.svg';
 import { ReactComponent as PhpIcon } from './icons/php.svg';
-
+import PropTypes from 'prop-types'
 
 const languages = [
   {name: 'JavaScript', icon: JavacriptIcon},
@@ -68,3 +68,14 @@ const Task = () => {
 };
 
 export default Task;
+
+LanguagePicker.propTypes ={
+  selected: PropTypes.string.isRequired,
+  onUpdateLanguage: PropTypes.func.isRequired,
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      icon: PropTypes.object.isRequired,
+    })
+  ).isRequired
+}

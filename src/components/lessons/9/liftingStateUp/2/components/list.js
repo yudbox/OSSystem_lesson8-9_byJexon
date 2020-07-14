@@ -39,11 +39,18 @@ const ArchivedLabel = styled(Label)`
 
 const byArchived = archivedItems => item => !archivedItems.includes(item.id);
 
-const List = ({ className, list }) => {
-  const [archivedItems, setArchivedItems] = React.useState([]);
+
+
+
+
+
+
+const List = ({ className, list, archivedItems, setArchivedItems }) => {
+
+
 
   const handleArchive = id => {
-    setArchivedItems(archivedItems => [...archivedItems, id]);
+    setArchivedItems(archivedItems=> [...archivedItems, id]);
   };
 
   return (

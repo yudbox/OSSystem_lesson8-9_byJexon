@@ -8,11 +8,21 @@ const friends = [
   'Doug'
 ];
 
+const ListItem = ({name}) => {
+  return(
+    <li>
+      {name}
+    </li>
+  )
+}
+
+
 const List = () => {
   // Render a list using the "friends" being passed in.
+  let generatorId = Math.floor(Math.random()*100)
   return (
     <ul>
-
+       {friends.map(friend=> <ListItem name={friend} key={generatorId} /> )}
     </ul>
   );
 };

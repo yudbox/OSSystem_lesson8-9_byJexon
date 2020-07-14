@@ -8,11 +8,19 @@ const friends = [
   {id: 117, name: 'Doug'}
 ];
 
-const List = () => {
+const ListItem = ({name}) => {
+  return(
+    <li>
+      {name}
+    </li>
+  )
+}
+
+const List = ({friends}) => {
   // Render a list using the "friends" being passed in.
   return (
     <ul>
-
+      {friends.map(friend=> <ListItem name={friend.name} key={friend.id} /> )}
     </ul>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const buttons = [
   'first',
@@ -18,7 +19,12 @@ class Index extends React.Component {
     const { activeButtonName } = this.state;
     return (
       <div>
-        {buttons.map((i, index) => (<Button clickHandler={this.clickHandler} key={index} name={i} />))}
+        {buttons.map((i, index) => (
+        <Button clickHandler={this.clickHandler} 
+        key={index} 
+        name={i}
+        isActive = {this.state.activeButtonName === i}
+        />))}
         <Details name={activeButtonName}/>
       </div>
     );
@@ -26,26 +32,27 @@ class Index extends React.Component {
 }
 
 class Button extends React.Component {
-  state = {active: false}
 
   clickHandler = () => {
-    this.setState(({ active }) => ({active: !active}));
-    this.props.clickHandler(this.props.name);
+    let name = this.props.name
+    this.props.clickHandler(name)
   }
 
   render() {
     const { name } = this.props;
-    const { active } = this.state;
+    const { isActive } = this.props;
     return (
       <button
         onClick={this.clickHandler}
-        style={{color: active ? 'red': 'blue'}}
+        style={{color: isActive ? 'red': 'blue'}}
       >
         {name}
       </button>
     );
   }
 }
+
+
 
 function Details({ name }) {
   return <div>{name}</div>;
@@ -57,3 +64,10 @@ const Task = () => {
 };
 
 export default Task;
+
+
+Button.propTypes = {
+  clickHandler: PropTypes.func,
+  name: PropTypes.string,
+  isActive: PropTypes.bool,
+}
